@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xwx.myblog.dao.SummaryDao">
+    <insert id="addSummary" parameterType="Summary">
+        INSERT INTO summary (a_id,image,title,note,u_id) VALUES (#{aid},#{image},#{title},#{note},#{uid})
+    </insert>
+    <select id="getSummary" parameterType="int" resultType="Summary">
+        SELECT * FROM summart WHERE a_id = #{aid}
+    </select>
+</mapper>

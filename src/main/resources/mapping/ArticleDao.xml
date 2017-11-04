@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xwx.myblog.dao.ArticleDao">
+    <insert id="addArticle" parameterType="Article">
+        INSERT INTO article (title,content,note,image,u_id,c_id,tag) VALUES (#{title},#{content},#{note},#{image},#{uid},#{cid},#{tag})
+    </insert>
+    <select id="getArticle" parameterType="int" resultType="Article">
+        SELECT * FROM article where a_id = #{aid}
+    </select>
+    <select id="findList" resultType="Article">
+        SELECT * FROM article
+    </select>
+</mapper>

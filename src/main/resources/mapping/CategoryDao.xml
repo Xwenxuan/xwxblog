@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xwx.myblog.dao.CategoryDao">
+    <select id="getId" resultType="int" parameterType="String">
+        SELECT c_id FROM category WHERE c_name = #{cname}
+    </select>
+</mapper>

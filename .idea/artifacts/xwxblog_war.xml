@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="xwxblog:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="xwxblog.war">
+      <element id="artifact" artifact-name="xwxblog:war exploded" />
+    </root>
+  </artifact>
+</component>
