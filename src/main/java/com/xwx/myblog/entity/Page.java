@@ -33,7 +33,7 @@ public class Page<T> {
     }
 
     public int getCount() {
-        return count;
+        return list.size();
     }
 
     public void setCount(int count) {

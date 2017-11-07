@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xwx.myblog.dao.ArticleSaveDao">
+    <insert id="addArticleSave" parameterType="ArticleSave">
+        INSERT INTO article_save (title,content,tag,c_id,u_id) VALUES (#{title},#{content},#{tag},#{cid},#{uid})
+    </insert>
+    <select id="getArticleSave" parameterType="int" resultType="ArticleSave">
+        SELECT * FROM article_save WHERE s_id = #{sid}
+    </select>
+    <select id="findList" resultType="ArticleSave">
+        SELECT * FROM article_save
+    </select>
+    <delete id="deleteArticleSave" parameterType="ArticleSave">
+        DELETE FROM article_save WHERE s_id = #{sid}
+    </delete>
+    <update id="updateArticleSave" parameterType="ArticleSave">
+        UPDATE article_save SET title = #{title},content=#{content},tag=#{tag},c_id=#{cid}
+    </update>
+</mapper>

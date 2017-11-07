@@ -5,4 +5,5 @@ package com.xwx.myblog.service;
  */
 public interface CategoryService {
     public int getId(String cname);
+    public String getCategoryById(int cid);
 }

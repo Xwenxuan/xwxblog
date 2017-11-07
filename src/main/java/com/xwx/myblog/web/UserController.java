@@ -1,8 +1,10 @@
 package com.xwx.myblog.web;
 
 import com.xwx.myblog.entity.Article;
+import com.xwx.myblog.entity.ArticleSave;
 import com.xwx.myblog.entity.Page;
 import com.xwx.myblog.entity.User;
+import com.xwx.myblog.service.ArticleSaveService;
 import com.xwx.myblog.service.ArticleService;
 import com.xwx.myblog.service.UserService;
 import com.xwx.myblog.utils.UserUtil;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by 73667 on 2017/10/31.
@@ -31,6 +34,8 @@ public class UserController {
     private UserService service;
     @Autowired
     private ArticleService  articleService;
+    @Autowired
+    private ArticleSaveService articleSaveService;
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public ModelAndView get(){
         return new ModelAndView("login");
@@ -61,8 +66,16 @@ public class UserController {
     public String toIndex(@RequestParam(value = "pageNo",required = false) Integer pageNo,Model model) {
         Page<Article> page = articleService.findPage();
         page.setList(articleService.findList());
+        page.setCount(page.getList().size());
         page.setPageNo(pageNo == null? 1:pageNo);
         model.addAttribute("page",page);
         return "index";
     }
+    @RequestMapping("/index/myBlog")
+    public String myBlog(Model model) {
+        List<ArticleSave> list = articleSaveService.findList();
+        model.addAttribute("list",list);
+        return "admin";
+    }
+
 }

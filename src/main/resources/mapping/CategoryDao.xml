@@ -4,4 +4,7 @@
     <select id="getId" resultType="int" parameterType="String">
         SELECT c_id FROM category WHERE c_name = #{cname}
     </select>
+    <select id="getCategoryById" parameterType="int" resultType="String">
+        SELECT c_name FROM category WHERE c_id = #{cid}
+    </select>
 </mapper>

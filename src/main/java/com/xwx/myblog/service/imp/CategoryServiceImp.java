@@ -15,4 +15,9 @@ public class CategoryServiceImp implements CategoryService{
     public int getId(String cname) {
         return dao.getId(cname);
     }
+
+    public String getCategoryById(int cid) {
+        return dao.getCategoryById(cid);
+    }
+
 }

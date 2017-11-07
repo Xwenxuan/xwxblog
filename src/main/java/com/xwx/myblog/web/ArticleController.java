@@ -28,6 +28,9 @@ public class ArticleController {
     @RequestMapping("/readArticle")
     public String read(int aid,Model model){
         Article article = service.getArticle(aid);
+        String tag = article.getTag();
+        String[] tags = tag.split(",");
+        model.addAttribute("tags",tags);
         model.addAttribute("article",article);
         return "article";
     }

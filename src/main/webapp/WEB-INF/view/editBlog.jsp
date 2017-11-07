@@ -1,11 +1,19 @@
 <%--
   Created by IntelliJ IDEA.
   User: 73667
+  Date: 2017/11/6
+  Time: 15:51
+  To change this template use File | Settings | File Templates.
+--%>
+<%--
+  Created by IntelliJ IDEA.
+  User: 73667
   Date: 2017/10/30
   Time: 22:37
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fns" uri="/WEB-INF/tlds/fns.tld" %>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -51,41 +59,42 @@
 </div>
 </nav>
 <%--<button id="btn1">测试</button>--%>
-<form action="${pageContext.request.getContextPath()}/a/blogWrite/submit">
+<form action="${pageContext.request.getContextPath()}/a/blogWrite/submit?sid=${articleSave.sid}">
     <div class="">
         标题</br>
         <%--<select class="" name="titleCategory">--%>
-            <%--<option value="">请选择</option>--%>
-            <%--<option value="">原创</option>--%>
-            <%--<option value="">翻译</option>--%>
-            <%--<option value="">转载</option>--%>
+        <%--<option value="">请选择</option>--%>
+        <%--<option value="">原创</option>--%>
+        <%--<option value="">翻译</option>--%>
+        <%--<option value="">转载</option>--%>
         <%--</select>--%>
-        <input type="text" class="am-input-lg" style="width:500px" name="title" id="title" required>
+        <input type="text" class="am-input-lg" style="width:500px" name="title" id="title" value="${articleSave.title}" required>
+        <input type="hidden" value="${articleSave.sid}" name="sid">
     </div>
-<div id="layout">
-    <header>
-        <%--<h1>Simple example</h1>--%>
-        文章内容
-    </header>
-    <div id="my-editormd">
+    <div id="layout">
+        <header>
+            <%--<h1>Simple example</h1>--%>
+            文章内容
+        </header>
+        <div id="my-editormd">
 
 
 
         <textarea id="my-editormd-markdown-doc" name="my-editormd-markdown-doc" style="display:none;">
-
+    ${articleSave.content}
 </textarea>
-        <textarea id="my-editormd-html-code" name="my-editormd-html-code" style="display:none;"></textarea>
+            <textarea id="my-editormd-html-code" name="my-editormd-html-code" style="display:none;"></textarea>
 
 
+        </div>
     </div>
-</div>
     <div class="">
         文章标签</br>
-        <input type="text" class="am-input-lg" style="width:500px" name="tag" id="tag" required>
+        <input type="text" class="am-input-lg" style="width:500px" name="tag" id="tag" value="${articleSave.tag}" required>
     </div>
     <div class="">
         分类</br>
-        <input type="text" class="am-input-lg" style="width:500px" name="category" id="category" required>
+        <input type="text" class="am-input-lg" style="width:500px" name="category" id="category" value="${fns:getCategoryById(articleSave.cid)}" required>
     </div>
     <div class="">
 
@@ -95,13 +104,14 @@
 
     </div>
 </form>
-    <form action="${pageContext.request.getContextPath()}/a/blogWrite/save" id="save">
-        <input type="hidden" name="title" id="titleSave">
-        <textarea style="display:none" name="content" id="contentSave"></textarea>
-        <input type="hidden" name="tag" id="tagSave">
-        <input type="hidden" name="category" id="categorySave">
-        <button class="am-btn am-btn-primary" id="saveBtn">保存</button>
-    </form>
+<form action="${pageContext.request.getContextPath()}/a/blogWrite/save?sid=${articleSave.sid}" id="save">
+    <input type="hidden" name="title" id="titleSave">
+    <textarea style="display:none" name="content" id="contentSave"></textarea>
+    <input type="hidden" name="sid" id="sid">
+    <input type="hidden" name="tag" id="tagSave">
+    <input type="hidden" name="category" id="categorySave">
+    <button class="am-btn am-btn-primary" id="saveBtn">保存</button>
+</form>
 <script src="${pageContext.request.getContextPath()}/static/editor.md-master/examples/js/jquery.min.js"></script>
 <script src="${pageContext.request.getContextPath()}/static/editor.md-master/editormd.min.js"></script>
 <script src="${pageContext.request.getContextPath()}/static/assets/js/jquery.min.js"></script>
@@ -132,6 +142,7 @@
             $("#contentSave").val($("#my-editormd-html-code").val());
             $("#tagSave").val($("#tag").val());
             $("#categorySave").val($("#category").val());
+            $("#sid").val(${articleSave.sid})
             $("#save").submit();
         });
         /*
@@ -146,9 +157,10 @@
     });
 </script>
 <%--<script type="text/javascript">--%>
-    <%----%>
+<%----%>
 <%--</script>--%>
 
 </body>
 </html>
+
 

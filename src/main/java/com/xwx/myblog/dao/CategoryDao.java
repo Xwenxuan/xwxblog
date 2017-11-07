@@ -5,4 +5,5 @@ package com.xwx.myblog.dao;
  */
 public interface CategoryDao {
     public int getId(String cname);
+    public String getCategoryById(int cid);
 }

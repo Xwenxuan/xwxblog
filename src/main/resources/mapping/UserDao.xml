@@ -16,4 +16,7 @@
     <select id="getUid" parameterType="String" resultType="int">
         SELECT u_id FROM user where username = #{username}
     </select>
+    <select id="getUserName" parameterType="int" resultType="String">
+        SELECT username FROM user where u_id = #{uid}
+    </select>
 </mapper>

@@ -1,4 +1,5 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 73667
@@ -101,7 +102,12 @@
 
         <div class="am-g blog-article-widget blog-article-margin">
             <div class="am-u-lg-4 am-u-md-5 am-u-sm-7 am-u-sm-centered blog-text-center">
-                <span class="am-icon-tags"> &nbsp;</span><a href="#">标签</a> , <a href="#">TAG</a> , <a href="#">啦啦</a>
+                <span class="am-icon-tags"> &nbsp;
+                <%--</span><a href="#">标签</a> ,--%>
+                <c:forEach items="${tags}" var="item">
+                    <a href="#">${item}&nbsp;</a>
+                </c:forEach>
+                 <%--, <a href="#">啦啦</a>--%>
                 <hr>
                 <a href=""><span class="am-icon-qq am-icon-fw am-primary blog-icon"></span></a>
                 <a href=""><span class="am-icon-wechat am-icon-fw blog-icon"></span></a>
@@ -115,15 +121,15 @@
                 <img src="assets/i/f15.jpg" alt="" class="blog-author-img am-circle">
             </div>
             <div class="am-u-sm-9 am-u-md-9 am-u-lg-10">
-                <h3><span>作者 &nbsp;: &nbsp;</span><span class="blog-color">amazeui</span></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <h3><span>作者 &nbsp;: &nbsp;</span><span class="blog-color">xiaowenxuan</span></h3>
+                <%--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>--%>
             </div>
         </div>
         <hr>
-        <ul class="am-pagination blog-article-margin">
-            <li class="am-pagination-prev"><a href="#" class="">&laquo; 一切的回顾</a></li>
-            <li class="am-pagination-next"><a href="">不远的未来 &raquo;</a></li>
-        </ul>
+        <%--<ul class="am-pagination blog-article-margin">--%>
+            <%--<li class="am-pagination-prev"><a href="#" class="">&laquo; 一切的回顾</a></li>--%>
+            <%--<li class="am-pagination-next"><a href="">不远的未来 &raquo;</a></li>--%>
+        <%--</ul>--%>
 
         <hr>
 

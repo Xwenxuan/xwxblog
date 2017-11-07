@@ -51,6 +51,7 @@
             <li><a href="#">技术杂谈</a></li>
             <li><a href="#">生活笔记</a></li>
             <li><a href="${pageContext.request.getContextPath()}/a/index/blogWrite">发表博客</a></li>
+            <li><a href="${pageContext.request.getContextPath()}/a/index/myBlog">我的博客</a></li>
             <li><a href="#">关于</a></li>
             <li><a href="#">联系我</a></li>
         </ul>

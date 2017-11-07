@@ -8,6 +8,6 @@
         SELECT * FROM article where a_id = #{aid}
     </select>
     <select id="findList" resultType="Article">
-        SELECT * FROM article
+        SELECT * FROM article ORDER BY create_date DESC
     </select>
 </mapper>

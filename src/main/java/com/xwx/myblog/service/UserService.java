@@ -11,4 +11,5 @@ public interface UserService {
     public void updateUser(User user);
     public String getRoles(String username);
     public int getUid(String username);
+    public String getUserName(int uid);
 }
